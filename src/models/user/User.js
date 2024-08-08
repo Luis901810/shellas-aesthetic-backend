@@ -1,22 +1,42 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, Sequelize } = require("sequelize");
 
 module.exports = (sequelize) => {
     sequelize.define(
         "User",
         {
             id: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.UUID,
+                defaultValue: DataTypes.UUIDV4,
                 primaryKey: true,
-                allowNull: false,
-                autoIncrement: true
             },
-            number: {
+            email:{
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true,
+                unique: true,
+                validate:{
+                    isEmail:true
+                }
             },
-            history: {
-                type: DataTypes.ARRAY(DataTypes.INTEGER),
-                allowNull: false
+            phone: {
+                type: DataTypes.STRING,
+                allowNull: true,
+                unique: true,
+            },
+            googleId:{
+                type: DataTypes.STRING,
+                unique: true,
+                allowNull:true,
+
+            },
+            facebookId: {
+                type: Sequelize.STRING,
+                unique: true,
+                allowNull: true,
+            },
+            password:{
+                type: DataTypes.STRING,
+                allowNull: true,
+
             },
             role: {
                 type: DataTypes.ENUM('admin', 'client'),
@@ -24,6 +44,11 @@ module.exports = (sequelize) => {
                 defaultValue: 'client',
             },
         },
-        { timestamps: false }
+            {
+                freezeTableName: true,
+                timestamps: false,
+              }
+        
+        
     );
 };

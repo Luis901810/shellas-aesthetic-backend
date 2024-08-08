@@ -2,8 +2,12 @@ const { Router } = require('express');
 
 const router = Router();
 
-module.exports = (app) => {
     router.get('/', (req, res) => {
-        res.status(200).json({ message: "Welcome to Shella's Aesthetic" })
-    })
-}
+        res.send( 
+            "bienvenidos a la base de datos de esteticas" )
+    });
+
+    router.use("./user", require("./User"))
+
+
+    module.exports = router;
