@@ -18,7 +18,7 @@ module.exports = (sequelize) =>{
                     max: 5
                 }
             },
-            commet:{
+            comment:{
                 type: DataTypes.TEXT,
                 allowNull: true,
             },
