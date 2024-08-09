@@ -43,11 +43,15 @@ module.exports = (sequelize) =>{
             discountPercentage:{
                 type: DataTypes.DECIMAL(5, 2),
                 allowNull: true,
-            }
+            },
+            deletedAt: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
         },
         {
             freezeTableName: true,
-            timestamps: false,
+           
           }
     )
 }

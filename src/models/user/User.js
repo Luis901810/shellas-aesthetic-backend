@@ -43,10 +43,14 @@ module.exports = (sequelize) => {
                 allowNull: false,
                 defaultValue: 'client',
             },
+            deletedAt: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
         },
             {
                 freezeTableName: true,
-                timestamps: false,
+              
               }
         
         

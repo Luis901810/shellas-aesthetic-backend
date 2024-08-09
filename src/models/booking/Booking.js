@@ -17,10 +17,14 @@ module.exports =( sequelize ) =>{
                 type: DataTypes.ENUM("scheduled", "completed", "cancelled"),
                 defaultValue: "scheduled",
             },
+            deletedAt: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
         },
         {
             freezeTableName: true,
-            timestamps: false,
+            
           }
     )
 }

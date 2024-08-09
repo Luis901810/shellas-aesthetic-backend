@@ -10,6 +10,7 @@ const mainRouter = Router();
     mainRouter.use("/user", require("./User"))
     mainRouter.use("/services", require("./services"))
     mainRouter.use("/booking", require("./Booking"))
+    mainRouter.use("/reviews", require("./Reviews"))
 
 
     mainRouter.use((req, res) =>{

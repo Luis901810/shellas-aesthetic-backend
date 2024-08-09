@@ -21,10 +21,14 @@ module.exports = (sequelize) =>{
             commet:{
                 type: DataTypes.TEXT,
                 allowNull: true,
-            }
+            },
+            deletedAt: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
         },  {
             freezeTableName: true,
-            timestamps: false,
+            
           }
     )
 }
