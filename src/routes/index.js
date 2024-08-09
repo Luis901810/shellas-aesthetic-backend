@@ -1,14 +1,19 @@
 const { Router } = require('express');
 
-const router = Router();
+const mainRouter = Router();
 
-    router.get('/', (req, res) => {
+    mainRouter.get('/', (req, res) => {
         res.send( 
             "bienvenidos a la base de datos de esteticas" )
     });
 
-    router.use("./user", require("./User"))
-    router.use("./services", require("./services"))
+    mainRouter.use("/user", require("./User"))
+    mainRouter.use("/services", require("./services"))
+    mainRouter.use("/booking", require("./Booking"))
 
 
-    module.exports = router;
+    mainRouter.use((req, res) =>{
+        res.status(404).send(`La ruta no pudo ser encontrada intente mas tarde: ${req.method} ${req.originalUrl}`)
+    })
+
+    module.exports = mainRouter;
